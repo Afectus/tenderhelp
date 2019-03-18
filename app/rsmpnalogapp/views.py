@@ -11,7 +11,7 @@ from django import forms
 
 
 def validate_inn_or_ogrn(value):
-    p = re.compile('^[0-9]{9,}$')
+    p = re.compile('^[0-9]{9,15}$')
     if not p.match(value):
         raise ValidationError(u'Вы ввели не ИНН/ОГРН')
 
