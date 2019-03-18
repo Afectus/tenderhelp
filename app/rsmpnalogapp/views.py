@@ -8,10 +8,7 @@ from django.views.generic.edit import FormView
 from django.core.exceptions import ValidationError
 from django.urls import reverse_lazy, reverse
 from django import forms
-#
-#category":1 - Микро
-#category":2 - Малое
-#category":3 - Среднее
+
 
 def validate_inn_or_ogrn(value):
     p = re.compile('^[0-9]{9,}$')
@@ -73,7 +70,6 @@ class Check_business_entity(FormView):
             data = data[0]
             data = self.transform_category(data)
             dict_data = {'data':data, 'status':True}
-            print(dict_data)
         else:
             dict_data = {'data':'Введите ИНН/ОГРН корректно', 'status':False}
         if 'cart' in self.request.session:
