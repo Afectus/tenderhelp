@@ -1,0 +1,10 @@
+
+app/rsmpnalogapp/__pycache__/
+
+app/rsmpnalogapp/__init__\.py
+
+app/rsmpnalogapp/migrations/
+
+main/__init__\.py
+
+main/__pycache__/

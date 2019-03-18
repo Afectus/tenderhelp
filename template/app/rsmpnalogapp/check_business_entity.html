@@ -1,0 +1,38 @@
+<form action="" method="post" enctype="multipart/form-data" role="form" novalidate>
+	{% csrf_token %}
+
+	
+	{% for hidden in form.hidden_fields %}
+		{{ hidden }}
+	{% endfor %}
+	
+	<fieldset>
+	{% for i in form.visible_fields %}
+
+		<div class="form-group">
+			{% if i.field.required %}<sup class="required">*</sup>{% endif %}
+			<label>{{ i.label }}</label>
+			{{ i }}
+			{% if i.errors %}
+			<p class="text-danger">{{ i.errors|striptags }}</p>
+			{% endif %}
+			<p class="help-block">{{ i.field.help_text  }}</p>
+		</div>
+
+	{% endfor %}
+	
+	<button type="submit" class="btn btn-primary" onclick="jdisabled(this);">Готово</button>
+	
+	</fieldset>
+	
+</form>
+{% if data.status == True %}
+ОГРН: {{ data.data.ogrn }}
+<br>
+ИНН: {{ data.data.inn }}
+<br>
+Категория предприятия: {{ data.data.category }}
+<br>
+{% else %}
+{{ data.data }}
+{% endif %}
