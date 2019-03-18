@@ -19,7 +19,7 @@ class Form_check_business_entity(forms.Form):
     inn_or_ogrn = forms.CharField(
         label='', 
         help_text='Введите ИНН или ОГРН', 
-        max_length=13, 
+        max_length=15, 
         required=True,
         validators=[validate_inn_or_ogrn]
         )
